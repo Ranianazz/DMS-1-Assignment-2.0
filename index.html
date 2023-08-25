@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Icon Template Square</title>
+    <style>
+        .row{
+            width:720px;
+            margin: 10px auto 10px auto ;
+        }
+        .image-container {
+            display: table-cell;
+            vertical-align: middle;
+            padding:30px;
+            object-fit: fill;
+        }
+    </style>
+</head>
+
+<body style="background-color: rosybrown;">
+    <div class="row">
+        <div class="image-container"><img id="circ" src="img/coin.png" height="200" width="200"/></div>
+        <div class="image-container"><img id="tria" src="img/power up icon.jpg" height="200" width="200"/></div>
+        <div class="image-container"><img id="squa" src="img/health.png" height="200" width="200"/></div>
+    </div>
+
+
+    <div class="row">
+        <div class="image-container" ><img id="hexa" src="img/robot hand.png" height="200" width="200"/></div>
+        <div class="image-container"><img id="rect" src="img/teleport.png" height="200" width="200"/></div>
+        <div class="image-container"><img id="ttp" src="img/time travel portal.png" height="200" width="200"/></div>
+        </div>
+
+    <div class="row">
+        <div class="image-container"><img id="gun" src="img/magic gun.png" height="200" width="200"/></div>
+        <div class="image-container"><img id="sword" src="img/magic sword.png" height="200" width="200"/></div>
+        <div class="image-container"><img id="bomb" src="img/magic bomb.png" height="200" width="200"/></div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.2/buzz.min.js"></script>
+
+    <script>
+        const s1 = new Audio("audio/Clap.wav")
+        const s2 = new Audio("audio/Clap_02.wav")
+        const s3 = new Audio("audio/Door.wav")
+        const s4 = new Audio("audio/Mouse clicks.wav")
+        const s5 = new Audio("audio/Slurp.wav")
+        const circle = document.getElementById("circ");
+        circle.onmouseover = () => {
+            console.log ("mouseover detected");
+            circle.src="img/coin 2.0.png";
+        }
+
+        circle.onmouseleave = () => {
+            circle.src = "img/coin.png";
+        }
+
+        document.getElementById ("circ").onpointerdown = () => {
+            console.log ("pointerdown detected")
+            s1.play();
+        }
+
+        document.getElementById ("tria").onpointerdown = () => {
+            console.log ("pointerdown detected")
+             s2.play ()
+        }
+
+        document.getElementById ("squa").onpointerdown = () => {
+            s3.play ()
+        }
+
+        document.getElementById ("hexa").onpointerdown = () => {
+            s4.play ()
+        }
+
+        document.getElementById ("rect").onpointerdown = () => {
+            s5.play ()
+        }
+    </script>
+
+</body>
+    
+</html>
