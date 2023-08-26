@@ -6,7 +6,7 @@
     <style>
         .row{
             width:720px;
-            margin: 10px auto 10px auto ;
+            margin: 10px 0 10px 0 ;
         }
         .image-container {
             display: table-cell;
@@ -14,68 +14,198 @@
             padding:30px;
             object-fit: fill;
         }
+
+        .body {
+            background-color: rgb(29, 2, 32);
+            background-image: url('img/background.png');
+            background-size: 111% 120%;
+        }
+
+        .main {
+            background-color: blue; 
+            width:930px;
+            margin: 20px auto 10px auto ;
+            /*Translucent*/
+            background-color: rgba(255,255,255,0.5);
+        }
     </style>
 </head>
 
-<body style="background-color: rosybrown;">
-    <div class="row">
-        <div class="image-container"><img id="circ" src="img/coin.png" height="200" width="200"/></div>
-        <div class="image-container"><img id="tria" src="img/power up icon.jpg" height="200" width="200"/></div>
-        <div class="image-container"><img id="squa" src="img/health.png" height="200" width="200"/></div>
-    </div>
-
-
-    <div class="row">
-        <div class="image-container" ><img id="hexa" src="img/robot hand.png" height="200" width="200"/></div>
-        <div class="image-container"><img id="rect" src="img/teleport.png" height="200" width="200"/></div>
-        <div class="image-container"><img id="ttp" src="img/time travel portal.png" height="200" width="200"/></div>
+<body class="body">
+    <div class="main">
+        <div class="row">
+            <div class="image-container"><img id="coin" src="img/coin.png" height="200" width="250"/></div>
+            <div class="image-container"><img id="powerUp" src="img/power up icon.jpg" height="200" width="250"/></div>
+            <div class="image-container"><img id="health" src="img/health.png" height="200" width="250"/></div>
         </div>
 
-    <div class="row">
-        <div class="image-container"><img id="gun" src="img/magic gun.png" height="200" width="200"/></div>
-        <div class="image-container"><img id="sword" src="img/magic sword.png" height="200" width="200"/></div>
-        <div class="image-container"><img id="bomb" src="img/magic bomb.png" height="200" width="200"/></div>
+
+        <div class="row">
+            <div class="image-container" ><img id="robotHand" src="img/robot hand.png" height="200" width="250"/></div>
+            <div class="image-container"><img id="teleport" src="img/teleport.png" height="200" width="250"/></div>
+            <div class="image-container"><img id="timeTravelPortal" src="img/time travel portal.png" height="200" width="250"/></div>
+            </div>
+
+        <div class="row">
+            <div class="image-container"><img id="gun" src="img/magic gun.png" height="200" width="250"/></div>
+            <div class="image-container"><img id="sword" src="img/magic sword.png" height="200" width="250"/></div>
+            <div class="image-container"><img id="bomb" src="img/magic bomb.png" height="200" width="250"/></div>
+        </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.2/buzz.min.js"></script>
 
     <script>
-        const s1 = new Audio("audio/Clap.wav")
-        const s2 = new Audio("audio/Clap_02.wav")
-        const s3 = new Audio("audio/Door.wav")
-        const s4 = new Audio("audio/Mouse clicks.wav")
-        const s5 = new Audio("audio/Slurp.wav")
-        const circle = document.getElementById("circ");
-        circle.onmouseover = () => {
+        //all sound constants variables
+        const coinSound = new Audio("audio/Coin 2_01.wav")
+        const powerUpSound = new Audio("audio/Power up_01.wav")
+        const healthSound = new Audio("audio/Dr robot_01.wav")
+        const robotHandSound = new Audio("audio/Robot hand_01.wav")
+        const teleportSound = new Audio("audio/Teleport_01.wav")
+        const timeTravelSound = new Audio("audio/Time travel_01.wav")
+        const gunSound = new Audio("audio/Bang_01.wav")
+        const swordSound = new Audio("audio/Sword 2_01.wav")
+        const bombSound = new Audio("audio/Clap.wav")
+        
+        //All element constants variables 
+        const coin = document.getElementById("coin");
+        const powerUp = document.getElementById("powerUp");
+        const health = document.getElementById("health");
+        const robotHand = document.getElementById("robotHand");
+        const teleport = document.getElementById("teleport");
+        const timeTravelPortal = document.getElementById("timeTravelPortal");
+        const gun = document.getElementById("gun");
+        const sword = document.getElementById("sword");
+        const bomb = document.getElementById("bomb");
+
+        //coin events handlers
+        coin.onmouseover = () => {
             console.log ("mouseover detected");
-            circle.src="img/coin 2.0.png";
+            coin.src="img/coin 2.0.png";
         }
 
-        circle.onmouseleave = () => {
-            circle.src = "img/coin.png";
+        coin.onmouseleave = () => {
+            coin.src = "img/coin.png";
         }
 
-        document.getElementById ("circ").onpointerdown = () => {
-            console.log ("pointerdown detected")
-            s1.play();
+        coin.onpointerdown = ()=>{
+            coinSound.play();
+        }
+        //-----------------------------------------------
+        //Power up  events handlers
+        powerUp.onmouseover = () => {
+            console.log ("mouseover detected");
+            powerUp.src="img/power up icon 2.0.png";
         }
 
-        document.getElementById ("tria").onpointerdown = () => {
-            console.log ("pointerdown detected")
-             s2.play ()
+        powerUp.onmouseleave = () => {
+            powerUp.src = "img/power up icon.png";
         }
 
-        document.getElementById ("squa").onpointerdown = () => {
-            s3.play ()
+        powerUp.onpointerdown = ()=>{
+            powerUpSound.play();
+        }
+        //-----------------------------------------------
+        //Health events handlers
+        health.onmouseover = () => {
+            console.log ("mouseover detected");
+            health.src="img/health 2.0.png";
         }
 
-        document.getElementById ("hexa").onpointerdown = () => {
-            s4.play ()
+        health.onmouseleave = () => {
+            health.src = "img/health.png";
         }
 
-        document.getElementById ("rect").onpointerdown = () => {
-            s5.play ()
+        health.onpointerdown = ()=>{
+            healthSound.play();
         }
+        //-----------------------------------------------
+        //Robot hand events handlers
+        robotHand.onmouseover = () => {
+            console.log ("mouseover detected");
+            robotHand.src="img/robot hand 2.0.png";
+        }
+
+        robotHand.onmouseleave = () => {
+            robotHand.src = "img/robot hand.png";
+        }
+
+        robotHand.onpointerdown = ()=>{
+            robotHandSound.play();
+        }
+        //-----------------------------------------------   
+        //Teleport events handlers
+            teleport.onmouseover = () => {
+            console.log ("mouseover detected");
+            teleport.src="img/teleport 2.0.png";
+        }
+
+        teleport.onmouseleave = () => {
+            teleport.src = "img/teleport.png";
+        }
+
+        teleport.onpointerdown = ()=>{
+            teleportSound.play();
+        }
+        //-----------------------------------------------      
+        //Time travel events handlers
+        timeTravelPortal.onmouseover = () => {
+            console.log ("mouseover detected");
+                timeTravelPortal.src="img/time travel portal 2.0.png";
+        }
+
+        timeTravelPortal.onmouseleave = () => {
+            timeTravelPortal.src = "img/time travel portal.png";
+        }
+
+        timeTravelPortal.onpointerdown = ()=>{
+            timeTravelSound.play();
+        }
+//-----------------------------------------------
+//Gun events handlers
+gun.onmouseover = () => {
+            console.log ("mouseover detected");
+            gun.src="img/magic gun 2.0.png";
+        }
+
+        gun.onmouseleave = () => {
+            gun.src = "img/magic gun.png";
+        }
+
+        gun.onpointerdown = ()=>{
+            gunSound.play();
+        }
+//-----------------------------------------------
+//Sword events handlers
+sword.onmouseover = () => {
+            console.log ("mouseover detected");
+            sword.src="img/magic sword 2.0.png";
+        }
+
+        sword.onmouseleave = () => {
+            sword.src = "img/magic sword.png";
+        }
+
+        sword.onpointerdown = ()=>{
+            swordSound.play();
+        }
+//-----------------------------------------------
+//Bomb events handlers
+bomb.onmouseover = () => {
+            console.log ("mouseover detected");
+            bomb.src="img/magic bomb 2.0.png";
+        }
+
+        bomb.onmouseleave = () => {
+            bomb.src = "img/magic bomb.png";
+        }
+
+        bomb.onpointerdown = ()=>{
+            bombSound.play();
+        }
+//-----------------------------------------------
+
+
     </script>
 
 </body>
